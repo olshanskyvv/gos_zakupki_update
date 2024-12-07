@@ -23,6 +23,7 @@ public class User {
     private String patronymic;
     private String number;
     private String email;
+    private String password;
     private String role;
     private Boolean isLegalEntity;
     @ManyToOne
@@ -31,4 +32,17 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "fk_position_id")
     private Position position;
+
+    public User(String surname, String name, String patronymic, String number, String email, String password, String role, Boolean isLegalEntity, Organization organization, Position position) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.number = number;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.isLegalEntity = isLegalEntity;
+        this.organization = organization;
+        this.position = position;
+    }
 }
