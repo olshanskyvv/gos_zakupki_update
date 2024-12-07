@@ -6,34 +6,53 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Field;
 
 public class ExcelWorker {
-    public void work(String fileLocation) throws IOException {
-        FileInputStream file = new FileInputStream(new File(fileLocation));
-        Workbook workbook = new XSSFWorkbook(file);
-        Sheet sheet = workbook.getSheetAt(0);
 
-        Map<Integer, List<String>> data = new HashMap<>();
-        int i = 0;
-        for (Row row : sheet) {
-            data.put(i, new ArrayList<String>());
-            for (Cell cell : row) {
-                switch (cell.getCellType()) {
-//                    case STRING: ... break;
-//                    case NUMERIC: ... break;
-//                    case BOOLEAN: ... break;
-//                    case FORMULA: ... break;
-//                    default: data.get(new Integer(i)).add(" ");
+    public static <T> void writeObjectsToExcel(String fileName, T[] objects) throws IOException, IllegalAccessException {
+        if (objects == null || objects.length == 0) {
+            throw new IllegalArgumentException("Array of objects cannot be null or empty");
+        }
+
+        // Создаем новую книгу Excel
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Data");
+
+        // Получаем заголовки из полей первого объекта
+        T firstObject = objects[0];
+        Field[] fields = firstObject.getClass().getDeclaredFields();
+
+        // Создаем строку заголовков
+        Row headerRow = sheet.createRow(0);
+        for (int i = 0; i < fields.length; i++) {
+            Cell cell = headerRow.createCell(i);
+            cell.setCellValue(fields[i].getName());
+        }
+
+        // Записываем значения объектов
+        for (int rowIndex = 0; rowIndex < objects.length; rowIndex++) {
+            Row dataRow = sheet.createRow(rowIndex + 1);
+            T object = objects[rowIndex];
+
+            for (int colIndex = 0; colIndex < fields.length; colIndex++) {
+                fields[colIndex].setAccessible(true);
+                Object value = fields[colIndex].get(object);
+
+                Cell cell = dataRow.createCell(colIndex);
+                if (value != null) {
+                    cell.setCellValue(value.toString());
                 }
             }
-            i++;
+        }
+
+        // Записываем файл на диск
+        try (FileOutputStream fileOut = new FileOutputStream(fileName)) {
+            workbook.write(fileOut);
+        } finally {
+            workbook.close();
         }
     }
 }
