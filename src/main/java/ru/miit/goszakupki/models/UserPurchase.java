@@ -11,16 +11,16 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "organization")
-public class Organization {
+@Table(name = "user_purchase")
+public class UserPurchase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "organization_id")
+    @Column(name = "user_purchase_id")
     private Long id;
-    private String title;
-    private String INN;
-    private String KPP;
-    private String legalAddress;
-    private String sphere;
-    private String type;
+    @ManyToOne
+    @JoinColumn(name = "fk_user_id")
+    private User user;
+    @ManyToOne
+    @JoinColumn(name = "fk_purchase_id")
+    private Purchase purchase;
 }

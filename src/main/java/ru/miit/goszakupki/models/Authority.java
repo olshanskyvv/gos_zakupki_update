@@ -17,6 +17,8 @@ public class Authority { // полномочия
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "authority_id")
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "fk_position_id")
     private Position position;
     private String header;
     private String description;
