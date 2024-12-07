@@ -22,6 +22,7 @@ public class Purchase { // закупка
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "purchase_id")
     private Long id;
+    private Long number;
     private String sphere;
     private String object;
     private Date dateOfPlacement;
