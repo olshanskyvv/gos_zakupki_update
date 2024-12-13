@@ -19,7 +19,11 @@ public class UserService {
 
     public Boolean authorize(SignInRequest signInRequest) {
         User user = userRepository.findByEmail(signInRequest.email);
-        return user != null;
+        if (user != null) {
+            return user.getPassword().equals(signInRequest.password);
+        } else {
+            return false;
+        }
     }
 
     public void add (SignUpRequest signUpRequest) {
