@@ -7,5 +7,5 @@ import ru.miit.goszakupki.repositories.PositionRepository;
 @Service
 @RequiredArgsConstructor
 public class PositionService {
-    private final PositionRepository positionRepository;
+    private PositionRepository positionRepository;
 }

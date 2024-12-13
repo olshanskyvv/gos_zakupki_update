@@ -18,7 +18,7 @@ import ru.miit.goszakupki.services.UserService;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private UserService userService;
 
     @Operation(
             summary = "Авторизация пользователя",

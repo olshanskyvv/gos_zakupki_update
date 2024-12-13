@@ -10,7 +10,6 @@ import ru.miit.goszakupki.models.ENUMS.TYPE;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
 @Schema(description = "Организации")
 public class PurchaseDTO {
     @Schema(description = "Номер", example = "1")
@@ -35,4 +34,21 @@ public class PurchaseDTO {
     private String placeOfDelivery;
     @Schema(description = "Дополнительные требования", example = "1")
     private String additionalRequirements;
+
+    public PurchaseDTO() {
+    }
+
+    public PurchaseDTO(Long number, String sphere, String object, Date dateOfPlacement, Date dateOfUpdate, STATUS status, TYPE type, METHOD method, Integer deliveryTime, String placeOfDelivery, String additionalRequirements) {
+        this.number = number;
+        this.sphere = sphere;
+        this.object = object;
+        this.dateOfPlacement = dateOfPlacement;
+        this.dateOfUpdate = dateOfUpdate;
+        this.status = status;
+        this.type = type;
+        this.method = method;
+        this.deliveryTime = deliveryTime;
+        this.placeOfDelivery = placeOfDelivery;
+        this.additionalRequirements = additionalRequirements;
+    }
 }

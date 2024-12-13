@@ -11,5 +11,5 @@ import ru.miit.goszakupki.services.LotPurchaseService;
 @Tag(name = "Лоты закупок", description = "Включает все функции лотов закупок")
 @RequiredArgsConstructor
 public class LotPurchaseController {
-    private final LotPurchaseService lotPurchaseService;
+    private LotPurchaseService lotPurchaseService;
 }

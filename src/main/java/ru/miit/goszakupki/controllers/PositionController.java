@@ -11,5 +11,5 @@ import ru.miit.goszakupki.services.PositionService;
 @Tag(name = "Должности", description = "Включает все функции должностей")
 @RequiredArgsConstructor
 public class PositionController {
-    private final PositionService positionService;
+    private PositionService positionService;
 }

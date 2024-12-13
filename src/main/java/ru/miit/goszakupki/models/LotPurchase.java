@@ -19,9 +19,7 @@ public class LotPurchase { // Лот закупки
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "lot_purchase_id")
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "fk_lot_id")
-    private Lot lot;
+    private Long lotCode;
     @ManyToOne
     @JoinColumn(name = "fk_purchase_id")
     private Purchase purchase;

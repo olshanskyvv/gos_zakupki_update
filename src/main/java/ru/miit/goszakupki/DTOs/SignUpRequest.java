@@ -3,29 +3,31 @@ package ru.miit.goszakupki.DTOs;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Schema(description = "Регистрация пользователя")
 public class SignUpRequest {
     @Schema(description = "Фамилия", example = "1")
-    private String surname;
+    public String surname;
     @Schema(description = "Имя", example = "1")
-    private String name;
+    public String name;
     @Schema(description = "Отчество", example = "1")
-    private String patronymic;
+    public String patronymic;
     @Schema(description = "Номер телефона", example = "1")
-    private String number;
+    public String number;
     @Schema(description = "Почта", example = "1")
-    private String email;
+    public String email;
     @Schema(description = "Пароль", example = "1")
-    private String password;
+    public String password;
     @Schema(description = "Роль", example = "1")
-    private String role;
+    public String role;
     @Schema(description = "Юр. лицо", example = "1")
-    private Boolean isLegalEntity;
+    public Boolean isLegalEntity;
     @Schema(description = "Идентификатор организации", example = "1")
-    private Long organization_id;
+    public Long organization_id;
     @Schema(description = "Идентификатор должности", example = "1")
-    private Long position_id;
+    public Long position_id;
 }

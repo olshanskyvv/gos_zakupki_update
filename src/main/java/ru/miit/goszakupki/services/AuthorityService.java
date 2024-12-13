@@ -7,5 +7,5 @@ import ru.miit.goszakupki.repositories.AuthorityRepository;
 @Service
 @RequiredArgsConstructor
 public class AuthorityService {
-    private final AuthorityRepository authorityRepository;
+    private AuthorityRepository authorityRepository;
 }

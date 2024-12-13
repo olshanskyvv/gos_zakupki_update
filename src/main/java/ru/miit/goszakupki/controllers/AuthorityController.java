@@ -11,5 +11,5 @@ import ru.miit.goszakupki.services.AuthorityService;
 @Tag(name = "Полномочия", description = "Включает все функции полномочий")
 @RequiredArgsConstructor
 public class AuthorityController {
-    private final AuthorityService authorityService;
+    private AuthorityService authorityService;
 }

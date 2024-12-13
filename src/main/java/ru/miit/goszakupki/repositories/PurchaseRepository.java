@@ -6,4 +6,5 @@ import ru.miit.goszakupki.models.Purchase;
 
 @Repository
 public interface PurchaseRepository extends JpaRepository<Purchase, Long> {
+    Purchase findByNumber(Long number);
 }

@@ -11,5 +11,5 @@ import ru.miit.goszakupki.services.OrganizationService;
 @Tag(name = "Организации", description = "Включает все функции организаций")
 @RequiredArgsConstructor
 public class OrganizationController {
-    private final OrganizationService organizationService;
+    private OrganizationService organizationService;
 }

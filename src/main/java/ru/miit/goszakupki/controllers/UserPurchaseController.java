@@ -11,5 +11,5 @@ import ru.miit.goszakupki.services.UserPurchaseService;
 @Tag(name = "Пользователи Закупки", description = "Включает все функции пользователей закупок")
 @RequiredArgsConstructor
 public class UserPurchaseController {
-    private final UserPurchaseService userPurchaseService;
+    private UserPurchaseService userPurchaseService;
 }

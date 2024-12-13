@@ -7,5 +7,5 @@ import ru.miit.goszakupki.repositories.LotPurchaseRepository;
 @Service
 @RequiredArgsConstructor
 public class LotPurchaseService {
-    private final LotPurchaseRepository lotPurchaseRepository;
+    private LotPurchaseRepository lotPurchaseRepository;
 }

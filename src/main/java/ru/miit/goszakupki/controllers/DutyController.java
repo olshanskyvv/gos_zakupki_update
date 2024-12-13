@@ -11,5 +11,5 @@ import ru.miit.goszakupki.services.DutyService;
 @Tag(name = "Обязанности", description = "Включает все функции обязанностей")
 @RequiredArgsConstructor
 public class DutyController {
-    private final DutyService dutyService;
+    private DutyService dutyService;
 }

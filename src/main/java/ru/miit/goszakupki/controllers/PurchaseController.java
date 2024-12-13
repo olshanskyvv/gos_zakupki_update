@@ -11,5 +11,5 @@ import ru.miit.goszakupki.services.PurchaseService;
 @Tag(name = "Закупки", description = "Включает все функции закупок")
 @RequiredArgsConstructor
 public class PurchaseController {
-    private final PurchaseService purchaseService;
+    private PurchaseService purchaseService;
 }

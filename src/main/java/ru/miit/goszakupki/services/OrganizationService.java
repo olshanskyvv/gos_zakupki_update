@@ -7,5 +7,5 @@ import ru.miit.goszakupki.repositories.OrganizationRepository;
 @Service
 @RequiredArgsConstructor
 public class OrganizationService {
-    private final OrganizationRepository organizationRepository;
+    private OrganizationRepository organizationRepository;
 }
