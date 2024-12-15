@@ -7,10 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "authority")
 public class Authority { // полномочия
     @Id
@@ -22,4 +18,45 @@ public class Authority { // полномочия
     private Position position;
     private String header;
     private String description;
+
+    public Authority() {
+    }
+
+    public Authority(Position position, String header, String description) {
+        this.position = position;
+        this.header = header;
+        this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

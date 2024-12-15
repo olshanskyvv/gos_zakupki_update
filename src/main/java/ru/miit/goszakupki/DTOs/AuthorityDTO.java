@@ -31,4 +31,16 @@ public class AuthorityDTO {
     public String getDescription() {
         return description;
     }
+
+    public void setPosition_id(Long position_id) {
+        this.position_id = position_id;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

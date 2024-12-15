@@ -2,9 +2,9 @@ package ru.miit.goszakupki.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,20 +14,22 @@ import ru.miit.goszakupki.services.UserService;
 
 @RestController
 @RequestMapping("/user")
-@Tag(name = "Пользователя", description = "Включает все функции пользователям, включая авторизацию")
-@RequiredArgsConstructor
+@Tag(name = "Пользователи", description = "Включает все функции пользователям")
 public class UserController {
-
+    @Autowired
     private UserService userService;
 
     @Operation(
             summary = "Авторизация пользователя",
             description = "Позволяет авторизовать пользователя"
     )
-    @GetMapping("/sign/in")
+    @PostMapping("/sign/in")
     public ResponseEntity<?> authorizeUser(@RequestBody SignInRequest signInRequest) {
         try {
-            return ResponseEntity.ok(userService.authorize(signInRequest));
+            if (userService.authorize(signInRequest)) {
+                return ResponseEntity.ok(userService.getUserDTO(signInRequest.getEmail()));
+            }
+            return ResponseEntity.badRequest().body("Not authorized");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -37,7 +39,7 @@ public class UserController {
             summary = "Регистрация пользователя",
             description = "Позволяет зарегистрироваться пользователя"
     )
-    @GetMapping("/sign/up")
+    @PostMapping("/sign/up")
     public ResponseEntity<?> addUser(@RequestBody SignUpRequest signUpRequest) {
         try {
             userService.add(signUpRequest);

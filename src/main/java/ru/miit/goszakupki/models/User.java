@@ -1,17 +1,8 @@
 package ru.miit.goszakupki.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "users")
 public class User {
     @Id
@@ -43,6 +34,98 @@ public class User {
         this.role = role;
         this.isLegalEntity = isLegalEntity;
         this.organization = organization;
+        this.position = position;
+    }
+
+    public User() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Boolean getLegalEntity() {
+        return isLegalEntity;
+    }
+
+    public void setLegalEntity(Boolean legalEntity) {
+        isLegalEntity = legalEntity;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
         this.position = position;
     }
 }
