@@ -1,16 +1,12 @@
 package ru.miit.goszakupki.services;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.miit.goszakupki.DTOs.SignInRequest;
 import ru.miit.goszakupki.DTOs.SignUpRequest;
 import ru.miit.goszakupki.DTOs.UserDTO;
-import ru.miit.goszakupki.models.Authority;
 import ru.miit.goszakupki.models.User;
 import ru.miit.goszakupki.repositories.*;
-
-import java.util.List;
 
 @Service
 public class UserService {
@@ -64,5 +60,9 @@ public class UserService {
                 user.getPosition(),
                 dutyRepository.findAllByPosition(user.getPosition()),
                 authorityRepository.findAllByPosition(user.getPosition()));
+    }
+
+    public User getUser(Long id) {
+        return userRepository.findById(id).orElseThrow();
     }
 }

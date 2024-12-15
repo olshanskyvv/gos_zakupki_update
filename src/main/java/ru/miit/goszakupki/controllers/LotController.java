@@ -3,8 +3,10 @@ package ru.miit.goszakupki.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.miit.goszakupki.DTOs.LotDTO;
+import ru.miit.goszakupki.models.Lot;
 import ru.miit.goszakupki.services.LotService;
 
 import java.util.List;
@@ -51,5 +53,10 @@ public class LotController {
                             @RequestBody LotDTO lot) {
         lot.setCode(id);
         return lotService.createOrUpdate(lot);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAll() {
+        return ResponseEntity.ok(lotService.getAllLots());
     }
 }

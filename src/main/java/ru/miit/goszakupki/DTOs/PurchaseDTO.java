@@ -7,6 +7,7 @@ import ru.miit.goszakupki.models.ENUMS.METHOD;
 import ru.miit.goszakupki.models.ENUMS.STATUS;
 import ru.miit.goszakupki.models.ENUMS.TYPE;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -19,9 +20,9 @@ public class PurchaseDTO {
     @Schema(description = "Объект закупки", example = "1")
     private String object;
     @Schema(description = "Дата размещения", example = "1")
-    private Date dateOfPlacement;
+    private LocalDate dateOfPlacement;
     @Schema(description = "Дата обновления", example = "1")
-    private Date dateOfUpdate;
+    private LocalDate dateOfUpdate;
     @Schema(description = "Статус", example = "1")
     private STATUS status;
     @Schema(description = "Тип", example = "1")
@@ -38,7 +39,7 @@ public class PurchaseDTO {
     public PurchaseDTO() {
     }
 
-    public PurchaseDTO(Long number, String sphere, String object, Date dateOfPlacement, Date dateOfUpdate, STATUS status, TYPE type, METHOD method, Integer deliveryTime, String placeOfDelivery, String additionalRequirements) {
+    public PurchaseDTO(Long number, String sphere, String object, LocalDate dateOfPlacement, LocalDate dateOfUpdate, STATUS status, TYPE type, METHOD method, Integer deliveryTime, String placeOfDelivery, String additionalRequirements) {
         this.number = number;
         this.sphere = sphere;
         this.object = object;

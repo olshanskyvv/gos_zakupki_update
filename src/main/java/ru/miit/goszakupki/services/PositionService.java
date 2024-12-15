@@ -1,6 +1,5 @@
 package ru.miit.goszakupki.services;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.miit.goszakupki.models.Position;

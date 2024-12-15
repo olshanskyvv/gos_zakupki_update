@@ -1,5 +1,6 @@
 package ru.miit.goszakupki.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import ru.miit.goszakupki.models.ENUMS.METHOD;
 import ru.miit.goszakupki.models.ENUMS.STATUS;
 import ru.miit.goszakupki.models.ENUMS.TYPE;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,8 +23,8 @@ public class Purchase { // закупка
     private Long number;
     private String sphere;
     private String object;
-    private Date dateOfPlacement;
-    private Date dateOfUpdate;
+    private LocalDate dateOfPlacement;
+    private LocalDate dateOfUpdate;
     private STATUS status;
     private TYPE type;
     private METHOD method;
@@ -33,7 +35,7 @@ public class Purchase { // закупка
     public Purchase() {
     }
 
-    public Purchase(Long id, Long number, String sphere, String object, Date dateOfPlacement, Date dateOfUpdate, STATUS status, TYPE type, METHOD method, Integer deliveryTime, String placeOfDelivery, String additionalRequirements) {
+    public Purchase(Long id, Long number, String sphere, String object, LocalDate dateOfPlacement, LocalDate dateOfUpdate, STATUS status, TYPE type, METHOD method, Integer deliveryTime, String placeOfDelivery, String additionalRequirements) {
         this.id = id;
         this.number = number;
         this.sphere = sphere;
@@ -64,11 +66,11 @@ public class Purchase { // закупка
         return object;
     }
 
-    public Date getDateOfPlacement() {
+    public LocalDate getDateOfPlacement() {
         return dateOfPlacement;
     }
 
-    public Date getDateOfUpdate() {
+    public LocalDate getDateOfUpdate() {
         return dateOfUpdate;
     }
 
@@ -112,11 +114,11 @@ public class Purchase { // закупка
         this.object = object;
     }
 
-    public void setDateOfPlacement(Date dateOfPlacement) {
+    public void setDateOfPlacement(LocalDate dateOfPlacement) {
         this.dateOfPlacement = dateOfPlacement;
     }
 
-    public void setDateOfUpdate(Date dateOfUpdate) {
+    public void setDateOfUpdate(LocalDate dateOfUpdate) {
         this.dateOfUpdate = dateOfUpdate;
     }
 

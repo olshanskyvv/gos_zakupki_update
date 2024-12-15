@@ -72,4 +72,8 @@ public class LotService {
         lotRepository.saveAndFlush(newLot);
         return toDTO(newLot);
     }
+
+    public List<Lot> getAllLots() {
+        return lotRepository.findAll();
+    }
 }

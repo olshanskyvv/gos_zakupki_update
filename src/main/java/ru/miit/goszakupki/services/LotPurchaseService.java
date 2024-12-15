@@ -1,9 +1,9 @@
 package ru.miit.goszakupki.services;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.miit.goszakupki.models.LotPurchase;
+import ru.miit.goszakupki.models.Purchase;
 import ru.miit.goszakupki.repositories.LotPurchaseRepository;
 
 import java.util.List;
@@ -31,5 +31,9 @@ public class LotPurchaseService {
 
     public void deleteLotPurchase(Long id) {
         lotPurchaseRepository.deleteById(id);
+    }
+
+    public List<LotPurchase> getLotPurchasesByPurchase(Purchase purchase) {
+        return lotPurchaseRepository.findAllByPurchase(purchase);
     }
 }
