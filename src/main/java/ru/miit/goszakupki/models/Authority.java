@@ -1,13 +1,11 @@
 package ru.miit.goszakupki.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "authority")
+@Schema(name = "Полномочие")
 public class Authority { // полномочия
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

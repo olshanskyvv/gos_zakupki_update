@@ -2,13 +2,14 @@ package ru.miit.goszakupki.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.miit.goszakupki.DTOs.AuthorityDTO;
 import ru.miit.goszakupki.models.Authority;
 import ru.miit.goszakupki.services.AuthorityService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/authority")
@@ -21,7 +22,7 @@ public class AuthorityController {
             summary = "Все полномочия",
             description = "Получить все полномочия"
     )
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<Authority>> getAll() {
         return ResponseEntity.ok(authorityService.getAuthorities());
     }
     @GetMapping("/{id}")
@@ -29,7 +30,7 @@ public class AuthorityController {
             summary = "Полномочие по id",
             description = "Позволяет получить полномочие по id"
     )
-    public ResponseEntity<?> getById(@PathVariable Long id) {
+    public ResponseEntity<Authority> getById(@PathVariable Long id) {
         return ResponseEntity.ok(authorityService.getAuthority(id));
     }
     @PostMapping("/add")
@@ -37,7 +38,7 @@ public class AuthorityController {
             summary = "Новое полномочие",
             description = "Позволяет добавить полномочие"
     )
-    public ResponseEntity<?> add(AuthorityDTO authority) {
+    public ResponseEntity<Authority> add(AuthorityDTO authority) {
         return ResponseEntity.ok(authorityService.saveAuthority(authority));
     }
     @PutMapping("/update")
@@ -45,7 +46,7 @@ public class AuthorityController {
             summary = "Обновить полномочие",
             description = "Позволяет обновить полномочие"
     )
-    public ResponseEntity<?> update(AuthorityDTO authority) {
+    public ResponseEntity<Authority> update(AuthorityDTO authority) {
         return ResponseEntity.ok(authorityService.updateAuthority(authority));
     }
     @DeleteMapping("/delete")

@@ -1,11 +1,10 @@
 package ru.miit.goszakupki.DTOs;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@Schema(description = "Полномочия")
+@Schema(name = "Полномочия")
 public class AuthorityDTO {
     @Schema(description = "Идентификатор должности", example = "1")
     private Long position_id;

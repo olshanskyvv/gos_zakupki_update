@@ -1,9 +1,8 @@
 package ru.miit.goszakupki.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
@@ -17,6 +16,7 @@ import java.util.Date;
                 columnNames = {"code", "valid_from"}
                 )
 })
+@Schema(name = "Лот")
 public class Lot {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

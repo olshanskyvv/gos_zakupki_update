@@ -1,9 +1,11 @@
 package ru.miit.goszakupki.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user_purchase")
+@Schema(name = "Пользователь закупки")
 public class UserPurchase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

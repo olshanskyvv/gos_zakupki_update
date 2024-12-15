@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-@Schema(description = "Лот закупки")
+@Schema(name = "Лот закупки")
 public class LotPurchaseDTO {
     @Schema(description = "Идентификатор лота", example = "1")
     private Long lot;

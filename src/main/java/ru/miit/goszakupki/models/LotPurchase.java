@@ -1,11 +1,13 @@
 package ru.miit.goszakupki.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "lot_purchase")
+@Schema(name = "Лот закупки")
 public class LotPurchase { // Лот закупки
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

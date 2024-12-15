@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "Регистрация пользователя")
+@Schema(name = "Запрос на регистрацию пользователя")
 public class SignUpRequest {
     @Schema(description = "Фамилия", example = "1")
     public String surname;

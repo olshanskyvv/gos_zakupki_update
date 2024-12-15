@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.miit.goszakupki.models.LotPurchase;
 import ru.miit.goszakupki.services.LotPurchaseService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/lot_purchase")
 @Tag(name = "Лоты закупок", description = "Включает все функции лотов закупок")
@@ -19,7 +21,7 @@ public class LotPurchaseController {
             summary = "Все лоты закупок",
             description = "Получить все лоты закупок"
     )
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<LotPurchase>> getAll() {
         return ResponseEntity.ok(lotPurchaseService.getAllLotPurchases());
     }
     @GetMapping("/{id}")
@@ -27,7 +29,7 @@ public class LotPurchaseController {
             summary = "Лоты закупок по id",
             description = "Позволяет получить лоты закупок по id"
     )
-    public ResponseEntity<?> getById(@PathVariable Long id) {
+    public ResponseEntity<LotPurchase> getById(@PathVariable Long id) {
         return ResponseEntity.ok(lotPurchaseService.getLotPurchaseById(id));
     }
     @PostMapping("/add")
@@ -35,7 +37,7 @@ public class LotPurchaseController {
             summary = "Новые лоты закупок",
             description = "Позволяет добавить лоты закупок"
     )
-    public ResponseEntity<?> add(LotPurchase lotPurchase) {
+    public ResponseEntity<LotPurchase> add(LotPurchase lotPurchase) {
         return ResponseEntity.ok(lotPurchaseService.createLotPurchase(lotPurchase));
     }
     @PutMapping("/update")
@@ -43,7 +45,7 @@ public class LotPurchaseController {
             summary = "Обновить лоты закупок",
             description = "Позволяет обновить лоты закупок"
     )
-    public ResponseEntity<?> update(LotPurchase lotPurchase) {
+    public ResponseEntity<LotPurchase> update(LotPurchase lotPurchase) {
         return ResponseEntity.ok(lotPurchaseService.updateLotPurchase(lotPurchase));
     }
     @DeleteMapping("/delete")

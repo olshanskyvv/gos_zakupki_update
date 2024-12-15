@@ -3,7 +3,7 @@ package ru.miit.goszakupki.DTOs;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 
-@Schema(description = "Авторизация пользователя")
+@Schema(name = "Запрос на авторизацию пользователя")
 public class SignInRequest {
     @Schema(description = "Адрес электронной почты", example = "sapipa@gmail.com")
     @Email(message = "Email адрес должен быть в формате user@example.com")

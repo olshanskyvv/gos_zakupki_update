@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@Schema(description = "Организации")
+@Schema(name = "Организации")
 public class OrganizationDTO {
     @Schema(description = "Наименование", example = "1")
     private String title;

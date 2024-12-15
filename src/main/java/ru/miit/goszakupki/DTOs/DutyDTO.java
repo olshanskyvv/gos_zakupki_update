@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@Schema(description = "Обязанности")
+@Schema(name = "Обязанности")
 public class DutyDTO {
     @Schema(description = "Идентификатор должности", example = "1")
     private Long position_id;

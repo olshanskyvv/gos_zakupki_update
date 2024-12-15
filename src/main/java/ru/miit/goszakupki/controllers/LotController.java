@@ -56,7 +56,7 @@ public class LotController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<Lot>> getAll() {
         return ResponseEntity.ok(lotService.getAllLots());
     }
 }

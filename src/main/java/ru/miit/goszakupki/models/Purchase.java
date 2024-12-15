@@ -1,20 +1,16 @@
 package ru.miit.goszakupki.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import ru.miit.goszakupki.models.ENUMS.METHOD;
 import ru.miit.goszakupki.models.ENUMS.STATUS;
 import ru.miit.goszakupki.models.ENUMS.TYPE;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "purchase")
+@Schema(name = "Закупка")
 public class Purchase { // закупка
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

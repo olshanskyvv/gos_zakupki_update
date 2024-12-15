@@ -2,13 +2,13 @@ package ru.miit.goszakupki.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.miit.goszakupki.models.Organization;
-import ru.miit.goszakupki.models.Position;
 import ru.miit.goszakupki.services.OrganizationService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/organization")
@@ -22,7 +22,7 @@ public class OrganizationController {
             summary = "Все организации",
             description = "Получить все организации"
     )
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<Organization>> getAll() {
         return ResponseEntity.ok(organizationService.getAllOrganizations());
     }
     @GetMapping("/{id}")
@@ -30,7 +30,7 @@ public class OrganizationController {
             summary = "Организация по id",
             description = "Позволяет получить организацию по id"
     )
-    public ResponseEntity<?> getById(@PathVariable Long id) {
+    public ResponseEntity<Organization> getById(@PathVariable Long id) {
         return ResponseEntity.ok(organizationService.getOrganizationById(id));
     }
     @PostMapping("/add")
@@ -38,7 +38,7 @@ public class OrganizationController {
             summary = "Новая организация",
             description = "Позволяет добавить организацию"
     )
-    public ResponseEntity<?> add(Organization organization) {
+    public ResponseEntity<Organization> add(Organization organization) {
         return ResponseEntity.ok(organizationService.createOrganization(organization));
     }
     @PutMapping("/update")
@@ -46,7 +46,7 @@ public class OrganizationController {
             summary = "Обновить организацию",
             description = "Позволяет обновить организацию"
     )
-    public ResponseEntity<?> update(Organization organization) {
+    public ResponseEntity<Organization> update(Organization organization) {
         return ResponseEntity.ok(organizationService.updateOrganization(organization));
     }
     @DeleteMapping("/delete")

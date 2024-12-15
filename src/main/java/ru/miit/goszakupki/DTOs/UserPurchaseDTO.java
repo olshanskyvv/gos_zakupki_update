@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@Schema(description = "Пользователи Закупки")
+@Schema(name = "Пользователи Закупки")
 public class UserPurchaseDTO {
     @Schema(description = "Идентификатор пользователя", example = "1")
     private Long user;

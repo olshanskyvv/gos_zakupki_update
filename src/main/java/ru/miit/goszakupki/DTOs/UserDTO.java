@@ -1,14 +1,14 @@
 package ru.miit.goszakupki.DTOs;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import ru.miit.goszakupki.models.*;
+import ru.miit.goszakupki.models.Authority;
+import ru.miit.goszakupki.models.Duty;
+import ru.miit.goszakupki.models.Organization;
+import ru.miit.goszakupki.models.Position;
 
 import java.util.List;
 
-@Schema(description = "Профиль пользователя")
+@Schema(name = "Профиль пользователя")
 public class UserDTO {
     private Long id;
     private String surname;

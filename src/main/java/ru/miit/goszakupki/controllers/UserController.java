@@ -40,7 +40,7 @@ public class UserController {
             description = "Позволяет зарегистрироваться пользователя"
     )
     @PostMapping("/sign/up")
-    public ResponseEntity<?> addUser(@RequestBody SignUpRequest signUpRequest) {
+    public ResponseEntity<String> addUser(@RequestBody SignUpRequest signUpRequest) {
         try {
             userService.add(signUpRequest);
             return ResponseEntity.ok().build();

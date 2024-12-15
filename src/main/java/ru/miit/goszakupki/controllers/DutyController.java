@@ -9,6 +9,8 @@ import ru.miit.goszakupki.DTOs.DutyDTO;
 import ru.miit.goszakupki.models.Duty;
 import ru.miit.goszakupki.services.DutyService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/duty")
 @Tag(name = "Обязанности", description = "Включает все функции обязанностей")
@@ -21,7 +23,7 @@ public class DutyController {
             summary = "Все обязанности",
             description = "Получить все обязанности"
     )
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<Duty>> getAll() {
         return ResponseEntity.ok(dutyService.getAllDuty());
     }
     @GetMapping("/{id}")
@@ -29,7 +31,7 @@ public class DutyController {
             summary = "Обязанность по id",
             description = "Позволяет получить обязанность по id"
     )
-    public ResponseEntity<?> getById(@PathVariable Long id) {
+    public ResponseEntity<Duty> getById(@PathVariable Long id) {
         return ResponseEntity.ok(dutyService.getDutyById(id));
     }
     @PostMapping("/add")
@@ -37,7 +39,7 @@ public class DutyController {
             summary = "Новая обязанность",
             description = "Позволяет добавить обязанность"
     )
-    public ResponseEntity<?> add(DutyDTO duty) {
+    public ResponseEntity<Duty> add(DutyDTO duty) {
         return ResponseEntity.ok(dutyService.saveDuty(duty));
     }
     @PutMapping("/update")
@@ -45,7 +47,7 @@ public class DutyController {
             summary = "Обновить обязанность",
             description = "Позволяет обновить обязанность"
     )
-    public ResponseEntity<?> update(DutyDTO duty) {
+    public ResponseEntity<Duty> update(DutyDTO duty) {
         return ResponseEntity.ok(dutyService.updateDuty(duty));
     }
     @DeleteMapping("/delete")

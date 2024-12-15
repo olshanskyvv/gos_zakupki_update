@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.miit.goszakupki.models.UserPurchase;
 import ru.miit.goszakupki.services.UserPurchaseService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user_purchase")
 @Tag(name = "Пользователи Закупки", description = "Включает все функции пользователей закупок")
@@ -19,7 +21,7 @@ public class UserPurchaseController {
             summary = "Все Пользователи Закупки",
             description = "Получить все Пользователи Закупки"
     )
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<UserPurchase>> getAll() {
         return ResponseEntity.ok(userPurchaseService.getAllUserPurchases());
     }
     @GetMapping("/{id}")
@@ -27,7 +29,7 @@ public class UserPurchaseController {
             summary = "Пользователи Закупки по id",
             description = "Позволяет получить Пользователи Закупки по id"
     )
-    public ResponseEntity<?> getById(@PathVariable Long id) {
+    public ResponseEntity<UserPurchase> getById(@PathVariable Long id) {
         return ResponseEntity.ok(userPurchaseService.getUserPurchaseById(id));
     }
     @PostMapping("/add")
@@ -35,7 +37,7 @@ public class UserPurchaseController {
             summary = "Новые Пользователи Закупки",
             description = "Позволяет добавить Пользователи Закупки"
     )
-    public ResponseEntity<?> add(UserPurchase userPurchase) {
+    public ResponseEntity<UserPurchase> add(UserPurchase userPurchase) {
         return ResponseEntity.ok(userPurchaseService.createUserPurchase(userPurchase));
     }
     @PutMapping("/update")
@@ -43,7 +45,7 @@ public class UserPurchaseController {
             summary = "Обновить Пользователи Закупки",
             description = "Позволяет обновить Пользователи Закупки"
     )
-    public ResponseEntity<?> update(UserPurchase userPurchase) {
+    public ResponseEntity<UserPurchase> update(UserPurchase userPurchase) {
         return ResponseEntity.ok(userPurchaseService.updateUserPurchase(userPurchase));
     }
     @DeleteMapping("/delete")
@@ -51,7 +53,7 @@ public class UserPurchaseController {
             summary = "Удалить Пользователи Закупки",
             description = "Позволяет удалить Пользователи Закупки"
     )
-    public ResponseEntity<?> delete(@RequestParam Long id) {
+    public ResponseEntity<UserPurchase> delete(@RequestParam Long id) {
         userPurchaseService.deleteUserPurchase(id);
         return ResponseEntity.ok().build();
     }

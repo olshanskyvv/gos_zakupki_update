@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.miit.goszakupki.models.Position;
 import ru.miit.goszakupki.services.PositionService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/position")
 @Tag(name = "Должности", description = "Включает все функции должностей")
@@ -20,7 +22,7 @@ public class PositionController {
             summary = "Все должности",
             description = "Получить все должности"
     )
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<Position>> getAll() {
         return ResponseEntity.ok(positionService.getPositions());
     }
     @GetMapping("/{id}")
@@ -28,7 +30,7 @@ public class PositionController {
             summary = "Должность по id",
             description = "Позволяет получить должность по id"
     )
-    public ResponseEntity<?> getById(@PathVariable Long id) {
+    public ResponseEntity<Position> getById(@PathVariable Long id) {
         return ResponseEntity.ok(positionService.getPosition(id));
     }
     @PostMapping("/add")
@@ -36,7 +38,7 @@ public class PositionController {
             summary = "Новая должность",
             description = "Позволяет добавить должность"
     )
-    public ResponseEntity<?> add(Position position) {
+    public ResponseEntity<Position> add(Position position) {
         return ResponseEntity.ok(positionService.createPosition(position));
     }
     @PutMapping("/update")
@@ -44,7 +46,7 @@ public class PositionController {
             summary = "Обновить должность",
             description = "Позволяет обновить должность"
     )
-    public ResponseEntity<?> update(Position position) {
+    public ResponseEntity<Position> update(Position position) {
         return ResponseEntity.ok(positionService.updatePosition(position));
     }
     @DeleteMapping("/delete")

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.miit.goszakupki.models.Purchase;
 import ru.miit.goszakupki.services.PurchaseService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/purchase")
 @Tag(name = "Закупки", description = "Включает все функции закупок")
@@ -19,7 +21,7 @@ public class PurchaseController {
             summary = "Все закупки",
             description = "Получить все закупки"
     )
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<List<Purchase>> getAll() {
         return ResponseEntity.ok(purchaseService.getAllPurchases());
     }
     @GetMapping("/{id}")
@@ -27,7 +29,7 @@ public class PurchaseController {
             summary = "Закупка по id",
             description = "Позволяет получить закупку по id"
     )
-    public ResponseEntity<?> getById(@PathVariable Long id) {
+    public ResponseEntity<Purchase> getById(@PathVariable Long id) {
         return ResponseEntity.ok(purchaseService.getPurchase(id));
     }
     @PostMapping("/add")
@@ -35,7 +37,7 @@ public class PurchaseController {
             summary = "Новая закупка",
             description = "Позволяет добавить закупку"
     )
-    public ResponseEntity<?> add(Purchase purchase) {
+    public ResponseEntity<Purchase> add(Purchase purchase) {
         return ResponseEntity.ok(purchaseService.createPurchase(purchase));
     }
     @PutMapping("/update")
@@ -43,7 +45,7 @@ public class PurchaseController {
             summary = "Обновить закупку",
             description = "Позволяет обновить закупку"
     )
-    public ResponseEntity<?> update(Purchase purchase) {
+    public ResponseEntity<Purchase> update(Purchase purchase) {
         return ResponseEntity.ok(purchaseService.updatePurchase(purchase));
     }
     @DeleteMapping("/delete")
@@ -51,7 +53,7 @@ public class PurchaseController {
             summary = "Удалить закупку",
             description = "Позволяет удалить закупку"
     )
-    public ResponseEntity<?> delete(@RequestParam Long id) {
+    public ResponseEntity<Purchase> delete(@RequestParam Long id) {
         purchaseService.deletePurchase(id);
         return ResponseEntity.ok().build();
     }

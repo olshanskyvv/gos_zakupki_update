@@ -1,13 +1,11 @@
 package ru.miit.goszakupki.models;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "duty")
+@Schema(name = "Обязанность")
 public class Duty { // обязанность
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

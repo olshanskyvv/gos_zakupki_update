@@ -1,17 +1,15 @@
 package ru.miit.goszakupki.DTOs;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import ru.miit.goszakupki.models.ENUMS.METHOD;
 import ru.miit.goszakupki.models.ENUMS.STATUS;
 import ru.miit.goszakupki.models.ENUMS.TYPE;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
-@Schema(description = "Организации")
+@Schema(name = "Организации")
 public class PurchaseDTO {
     @Schema(description = "Номер", example = "1")
     private Long number;
