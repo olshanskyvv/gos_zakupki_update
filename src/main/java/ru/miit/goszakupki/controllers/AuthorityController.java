@@ -11,6 +11,7 @@ import ru.miit.goszakupki.services.AuthorityService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/authority")
 @Tag(name = "Полномочия", description = "Включает все функции полномочий")

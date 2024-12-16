@@ -10,6 +10,7 @@ import ru.miit.goszakupki.services.LotPurchaseService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/lot_purchase")
 @Tag(name = "Лоты закупок", description = "Включает все функции лотов закупок")

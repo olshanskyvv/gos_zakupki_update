@@ -11,6 +11,7 @@ import ru.miit.goszakupki.services.DutyService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/duty")
 @Tag(name = "Обязанности", description = "Включает все функции обязанностей")

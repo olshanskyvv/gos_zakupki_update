@@ -10,6 +10,7 @@ import ru.miit.goszakupki.services.PurchaseService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/purchase")
 @Tag(name = "Закупки", description = "Включает все функции закупок")

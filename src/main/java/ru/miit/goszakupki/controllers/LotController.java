@@ -11,6 +11,7 @@ import ru.miit.goszakupki.services.LotService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/lot")
 @Tag(name = "Лоты", description = "Включает все функции лотов")

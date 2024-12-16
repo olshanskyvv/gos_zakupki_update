@@ -10,6 +10,7 @@ import ru.miit.goszakupki.services.OrganizationService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/organization")
 @Tag(name = "Организации", description = "Включает все функции организаций")

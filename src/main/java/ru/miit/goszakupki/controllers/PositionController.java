@@ -10,6 +10,7 @@ import ru.miit.goszakupki.services.PositionService;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/position")
 @Tag(name = "Должности", description = "Включает все функции должностей")

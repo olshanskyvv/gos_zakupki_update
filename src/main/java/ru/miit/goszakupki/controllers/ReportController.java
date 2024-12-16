@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/doc")
 @Tag(name = "Документы", description = "Включает все функции документации")
 public class ReportController {
